@@ -1,0 +1,39 @@
+package se.lexicon;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+public class DateTimeExercises {
+    static void main() {
+        // Exercise 1 – Current Date
+        currentDate();
+        // Exercise 2 – Formatted Current Date
+        formattedDate();
+        // Exercise 3 – Last Monday and the Entire Week
+        lastMondayWeek();
+    }
+    //Create a LocalDate of the current day and print it out.
+    public static void currentDate(){
+        LocalDate date = LocalDate.now();
+        System.out.println(date);
+    }
+
+    //Create a LocalDate of the current day and print it out in the following pattern using DateTimeFormatter: Torsdag 29 mars.
+    public static void formattedDate(){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("eeee dd MMMM");
+        LocalDate date = LocalDate.now();
+        System.out.println(date.format(formatter));
+    }
+
+    //Create a LocalDate of last Monday. Then print out the entire week in a loop using standard ISO format.
+    public static void lastMondayWeek(){
+        LocalDate lastMonday = LocalDate.now().minusDays(1);
+        System.out.println("Last Monday: "+lastMonday);
+        LocalDate today = LocalDate.now();
+        System.out.println("Today: "+today.getDayOfWeek());
+
+        for (int i=0; i<7; i++) {
+            System.out.println(today);
+        }
+    }
+}
