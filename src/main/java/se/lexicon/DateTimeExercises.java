@@ -6,11 +6,14 @@ import java.time.format.DateTimeFormatter;
 public class DateTimeExercises {
     static void main() {
         // Exercise 1 – Current Date
-        currentDate();
+        //currentDate();
         // Exercise 2 – Formatted Current Date
-        formattedDate();
+        //formattedDate();
         // Exercise 3 – Last Monday and the Entire Week
         lastMondayWeek();
+        // Exercise 4 – Parse Date from String
+        parseDate("2023-12-25");
+
     }
     //Create a LocalDate of the current day and print it out.
     public static void currentDate(){
@@ -29,11 +32,15 @@ public class DateTimeExercises {
     public static void lastMondayWeek(){
         LocalDate lastMonday = LocalDate.now().minusDays(1);
         System.out.println("Last Monday: "+lastMonday);
-        LocalDate today = LocalDate.now();
-        System.out.println("Today: "+today.getDayOfWeek());
-
         for (int i=0; i<7; i++) {
-            System.out.println(today);
+            System.out.println(lastMonday.plusDays(i) + " " +lastMonday.plusDays(i).getDayOfWeek() );
         }
     }
+
+    //Create a LocalDate object from a String by using the .parse() method.
+    public static void parseDate(String date){
+        LocalDate parsedDate = LocalDate.parse(date);
+        System.out.println("Parsed Date: " + parsedDate);
+    }
 }
+
